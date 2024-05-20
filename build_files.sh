@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
+echo python –version
+
 echo "Building project packages----"
-# pip install -r requirements. txt
+pip install -r requirements. txt
 # python3 -m pip -r ./requirements.txt
 
 echo "Migrating Database...."
-python manage.py makemigrations --noinput
-python manage.py migrate --noinput
+python3 manage.py makemigrations --noinput
+python3 manage.py migrate --noinput
 
 echo "Collecting static files...."
-python manage.py collectstatic --noinput
+python3 manage.py collectstatic --noinput
 
 
 
