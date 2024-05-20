@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trees</title>
+    </head>
+    <body> 
+       {% for tree_deatils in tree %} 
+            <h2 class="name">Name: {{tree_deatils.tree_name}}</h2>
+            <h2 class="scientific_name">Scientific name: {{ tree_deatils.tree_scientific_name}} </h2>
+            <h2 class="description">Description:  {{ tree_deatils.tree_description}}</h2>
+            
+       {% endfor %}
+
+    </body>
+</html>

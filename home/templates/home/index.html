@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trees</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+
+<body>
+    <h1>Trees List</h1>
+    <table class="treetable">
+        <tr>
+            <th class="trees" id="name">TREE NAME</th>
+            <th class="trees" id="scient">TREE SCIENTIFIC NAME</th>
+            <th class="trees" id="desc">TREE DESCRIPTION</th>
+        </tr>
+        {% for tree_deatils in tree %}
+        <tr>
+        <td class="trees" id="name">{{ tree_deatils.tree_name}}</td>
+        <td class="trees" id="scient">{{tree_deatils.tree_scientific_name }}</td>
+        <td class="trees" id="desc">{{tree_deatils.tree_description }}</td>
+       </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

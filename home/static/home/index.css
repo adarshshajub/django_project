@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(231, 247, 247);
+}
+
+.treetable{
+    border-collapse: collapse;
+    width: 100%;
+}
+.trees {
+    border:2px solid black;
+    border-collapse: collapse;
+}
+
+#desc {
+    width: 50%;
+}
+
+#name {
+    width:15%;
+}
+
+#scient {
+    width: 25%;
+}
+
+#link {
+    width: 10%;
+}
+
+
+
+
