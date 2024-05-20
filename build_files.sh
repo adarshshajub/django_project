@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 echo "Building project packages----"
-
-python3 -m pip -r ./requirements.txt
+pip install -r requirements. txt
+# python3 -m pip -r ./requirements.txt
 
 echo "Migrating Database...."
 python3 manage.py makemigrations --noinput
