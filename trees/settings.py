@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u1-fypqzrur$yjry-f4su53)&n_(2#!0@=ygqq!7+gqy41kf4w'
-
+# SECRET_KEY = 'django-insecure-u1-fypqzrur$yjry-f4su53)&n_(2#!0@=ygqq!7+gqy41kf4w'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['.vercel.app']
+# DEBUG = True
+DEBUG = os.environ.get("DEBUG","False") == "True"
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -80,10 +82,23 @@ WSGI_APPLICATION = 'trees.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+DATABASES_HOST = os.environ.get("DATABASES_HOST")
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'trees_0go7',                      
+        'USER': 'trees_0go7_user',
+        'PASSWORD': '2qIswcH7jlTValDly9i512TnxgaCVk4C',
+        # 'HOST': 'dpg-cp5milgl5elc73e6mnq0-a.oregon-postgres.render.com',
+        'HOST': DATABASES_HOST,
+        'PORT': '5432',
     }
 }
 
@@ -127,6 +142,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'home/static/home'),
     os.path.join(BASE_DIR, 'static/admin/'),
 ]
+# STATIC_ROOT = [
+#     os.path.join(BASE_DIR, 'staticfiles_build','static')
+# ]
 
 
 # Default primary key field type
