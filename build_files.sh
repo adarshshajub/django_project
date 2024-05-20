@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-echo python –version
+echo $python –version
 
 echo "Building project packages----"
-pip install -r requirements. txt
+python3 pip install -r requirements. txt
 # python3 -m pip -r ./requirements.txt
 
 echo "Migrating Database...."
