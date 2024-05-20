@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Building project packages----"
-pip install -r requirements. txt
+# pip install -r requirements. txt
 # python3 -m pip -r ./requirements.txt
 
 echo "Migrating Database...."
